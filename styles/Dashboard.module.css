@@ -1,0 +1,22 @@
+.main {
+  width: 100%;
+  display: flex;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.inner {
+  overflow-y: hidden;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3rem;
+  color: #4b5563;
+}
+.heading {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+}
