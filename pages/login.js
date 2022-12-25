@@ -17,7 +17,8 @@ const LoginPage = () => {
 
   const onSubmit = async (data) => {
     try {
-      await logIn(data.email, data.password);
+      let res = await logIn(data.email, data.password);
+      localStorage.setItem("rekcartyliad", res.user.uid);
       router.push("/dashboard");
     } catch (error) {
       console.log(error.message);

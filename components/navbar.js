@@ -46,7 +46,13 @@ const Navbar = ({ children }) => {
           <div className={styles.list}>
             {!user.uid ? (
               menuItems.map((item) => (
-                <span key={item.id}>
+                <span
+                  style={{
+                    color: "#1E40AF",
+                    cursor: "pointer",
+                  }}
+                  key={item.id}
+                >
                   <Link href={item?.link}>{item?.name}</Link>
                 </span>
               ))

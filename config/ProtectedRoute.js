@@ -5,9 +5,9 @@ import { useAuth } from "../context/AuthContext";
 const ProtectedRoute = ({ children }) => {
   const router = useRouter();
   const { user } = useAuth();
-
+  const token = localStorage.getItem("rekcartyliad");
   useEffect(() => {
-    if (!user.uid) {
+    if (!token) {
       router.push("/login");
     }
   }, [router, user]);
