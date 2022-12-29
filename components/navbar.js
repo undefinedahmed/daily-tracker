@@ -27,6 +27,7 @@ const Navbar = ({ children }) => {
   const handleLogout = async () => {
     try {
       await logOut();
+      localStorage.removeItem("rekcartyliad");
       router.push("/login");
     } catch (error) {
       console.log(error.message);

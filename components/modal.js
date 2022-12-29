@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import style from "../styles/Modal.module.css";
 
 const Modal = (props) => {
+  const [timeError, setTimeError] = useState({
+    error: false,
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
   const methods = useForm({ mode: "onBlur" });
   const {
     register,
@@ -11,7 +16,27 @@ const Modal = (props) => {
   } = methods;
 
   const onSubmit = async (data) => {
-    props.onSubmit(data);
+    if (validateTime(data.startDate, data.endDate)) props.onSubmit(data);
+  };
+
+  const validateTime = (start, end) => {
+    if (new Date().getTime() > new Date(start).getTime()) {
+      setTimeError({
+        ...timeError,
+        error: true,
+        message: "Start Time Cannot be less than Today!",
+      });
+      return false;
+    }
+    if (new Date(start).getTime() > new Date(end).getTime()) {
+      setTimeError({
+        ...timeError,
+        error: true,
+        message: "Start Time Cannot be less than End Time",
+      });
+      return false;
+    }
+    return true;
   };
 
   return (
@@ -59,8 +84,10 @@ const Modal = (props) => {
                   })}
                   className={style.input}
                 />
-                {errors.startDate && (
-                  <p className={style.textRed}>{errors.startDate.message}</p>
+                {(errors.startDate || timeError.error) && (
+                  <p className={style.textRed}>
+                    {timeError.message || errors?.startDate?.message}
+                  </p>
                 )}
               </div>
 
@@ -78,8 +105,10 @@ const Modal = (props) => {
                   })}
                   className={style.input}
                 />
-                {errors.endDate && (
-                  <p className={style.textRed}>{errors.endDate.message}</p>
+                {(errors.endDate || timeError.error) && (
+                  <p className={style.textRed}>
+                    {timeError.message || errors?.endDate?.message}
+                  </p>
                 )}
               </div>
               <footer className={style.actions}>

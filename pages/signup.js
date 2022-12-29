@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import styles from "../styles/SignUp.module.css";
@@ -9,6 +9,11 @@ const SignupPage = () => {
   const router = useRouter();
   const { signUp } = useAuth();
   const methods = useForm({ mode: "onBlur" });
+  const token = localStorage.getItem("rekcartyliad");
+
+  useEffect(() => {
+    if (token) router.push("/dashboard");
+  }, [token]);
 
   const {
     register,

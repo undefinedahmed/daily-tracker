@@ -7,6 +7,7 @@
   margin-right: auto;
 }
 .inner {
+  min-width: 25vw;
   overflow-y: hidden;
   padding-left: 3rem;
   padding-right: 3rem;
@@ -25,22 +26,27 @@
   font-size: 1.5rem;
   line-height: 1.5rem;
   font-weight: 400;
-  margin: 1rem 0;
+  margin: 2.5rem 0;
 }
 .buttonContainer {
   padding-top: 2rem;
 }
 .button {
-  background-color: #1e3a8a;
+  border: 1px solid #1e3a8a;
   text-align: center;
-  width: 100%;
+  background-color: transparent;
+  width: 50%;
   height: 3rem;
   border-radius: 0.375rem;
   cursor: pointer;
-  border-width: 2px;
+  background: transparent;
+}
+.button:hover {
+  background-color: #1e3a8a;
+  color: white;
+  transition: 0.3s ease-in-out;
 }
 .buttonInner {
-  color: #ffffff;
   font-weight: 500;
   text-transform: uppercase;
   border: none;

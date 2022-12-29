@@ -68,16 +68,20 @@
   padding-top: 2rem;
 }
 .button {
-  background-color: #1e3a8a;
+  background-color: transparent;
+  border: 1px solid #1e3a8a;
   text-align: center;
   width: 66.666667%;
   height: 3rem;
   border-radius: 0.375rem;
   cursor: pointer;
-  border-width: 2px;
+}
+.button:hover {
+  background-color: #1e3a8a;
+  color: white;
+  transition: 0.3s ease-in-out;
 }
 .buttonInner {
-  color: #ffffff;
   font-weight: 500;
   text-transform: uppercase;
   border: none;

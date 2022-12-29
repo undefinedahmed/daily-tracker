@@ -1,0 +1,23 @@
+.main {
+  width: 25vw;
+  padding: 1rem 2rem;
+  border: 1px solid #1e3a8a;
+  background-color: #1e3a8a;
+  border-radius: 0.375rem;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.actionsContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+}
+.actionsContainer > p {
+  cursor: pointer;
+}

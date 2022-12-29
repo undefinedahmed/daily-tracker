@@ -12,6 +12,8 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 1rem;
 }
+.loading {
+}
 .modal {
   position: fixed;
   top: 15vh;
@@ -46,15 +48,19 @@
 }
 .button {
   width: max-content;
-  background-color: #1e3a8a;
+  border: 1px solid #1e3a8a;
+  background-color: transparent;
   text-align: center;
   height: 2.5rem;
   border-radius: 0.375rem;
   cursor: pointer;
-  border-width: 2px;
+}
+.button:hover {
+  background-color: #1e3a8a;
+  color: white;
+  transition: 0.3s ease-in-out;
 }
 .buttonInner {
-  color: #ffffff;
   font-weight: 500;
   padding: 0 1rem;
   text-transform: uppercase;
